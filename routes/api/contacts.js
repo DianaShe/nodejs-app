@@ -2,8 +2,7 @@ const express = require('express')
 
 const ctrl = require('../../controllers/contacts')
 
-const validateBody = require('../../middlewares/validateBody')
-const validateId = require('../../middlewares/validateId')
+const {validateBody, validateId } = require('../../middlewares/contacts')
 
 const {addSchema, updateFavoriteSchema} = require('../../schemas/contacts')
 
