@@ -1,5 +1,5 @@
-import validateBody from "./validateBody";
-import validateId from "./validateId";
+const validateBody = require ("./validateBody");
+const validateId = require ("./validateId");
 
 module.exports = {
     validateBody,

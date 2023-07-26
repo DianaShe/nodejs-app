@@ -1,6 +1,6 @@
-import ctrlWrapper from "./ctrlWrapper";
-import HttpError from "./HttpError";
-import MongooseError from "./MongooseError";
+const ctrlWrapper = require ("./ctrlWrapper");
+const HttpError = require ("./HttpError");
+const MongooseError = require ("./MongooseError");
 
 module.exports = {
     ctrlWrapper,

@@ -1,5 +1,5 @@
-import addSchema from "./addSchema";
-import updateFavoriteSchema from "./updateFavoriteSchema";
+const addSchema = require ("./addSchema");
+const updateFavoriteSchema = require ("./updateFavoriteSchema");
 
 module.exports = {
     addSchema,
