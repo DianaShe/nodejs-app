@@ -1,4 +1,5 @@
 const User = require('../../models/user');
+const gravatar = require('gravatar')
 const { HttpError } = require('../../utils');
 
 const register = async (req, res) => {
@@ -7,11 +8,13 @@ const register = async (req, res) => {
 
     if (userExists) throw HttpError(409, "Email in use")
 
-    const newUser = await User.create(req.body);
-    newUser.password = undefined
+    const avatarURL = gravatar.url(email, {s: 250})
+
+    const newUser = await User.create({...req.body, avatarURL});
+    
     res.status(201).json({user: {
         email: newUser.email,
-        subscription: newUser.subscription
+        subscription: newUser.subscription,
     }
     });
 };

@@ -21,6 +21,7 @@ const userSchema = new Schema(
       enum: Object.values(subscriptionTypes),
       default: subscriptionTypes.STARTER,
     },
+    avatarURL: String,
     token: String,
   },
   { versionKey: false }
