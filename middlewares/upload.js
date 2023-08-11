@@ -1,14 +1,16 @@
 const multer = require("multer");
 const path = require("path");
+const jimp = require("jimp");
+const fse = require('fs-extra')
 const { nanoid } = require("nanoid");
 const { HttpError } = require("../utils");
-const { model } = require("mongoose");
-const jimp = require("jimp");
-
-const tempDir = path.join(__dirname, "../", "tmp");
 
 const multerStorage = multer.diskStorage({
-  destination: tempDir,
+  destination: async(req, file, cb) => {
+    const tempDir = path.join(__dirname, "../", "tmp");
+    await fse.ensureDir(tempDir)
+    cb(null, tempDir)
+  },
   filename: (req, file, cb) => {
     const extension = file.mimetype.split("/")[1];
 

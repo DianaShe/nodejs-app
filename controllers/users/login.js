@@ -10,6 +10,8 @@ const login = async (req, res, next) => {
 
   if (!user || !password) throw HttpError(401, "Email or password is wrong");
 
+  if (!user.verify) throw HttpError(401, "Email is not verified");
+
   const passwordIsValid = await user.checkPassword(password, user.password);
 
   if (!passwordIsValid) throw HttpError(401, "Email or password is wrong");
